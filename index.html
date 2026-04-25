@@ -24,7 +24,7 @@
         linear-gradient(135deg, #fbf8f1 0%, var(--bg) 52%, #eee6da 100%);
       color: var(--ink);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -99,11 +99,11 @@
     }
 
     .intro {
-      max-width: 540px;
+      max-width: 620px;
       margin-top: 28px;
       color: var(--muted);
-      font-size: 16px;
-      line-height: 1.5;
+      font-size: clamp(18px, 2.2vw, 25px);
+      line-height: 1.35;
     }
 
     .content {
@@ -123,7 +123,7 @@
       display: grid;
       gap: 26px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 15px;
     }
 
     .meta-block {
@@ -137,31 +137,23 @@
       display: block;
       margin-bottom: 8px;
       color: var(--ink);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    .manifest { 
-      max-width: 680px; 
-    }
-    
-    .manifest p { 
-      font-size: 16px; 
-      line-height: 1.7; 
-      margin: 0 0 1.5em; 
-      color: #333;
-    }
+    .manifest { max-width: 760px; font-size: clamp(20px, 2.5vw, 34px); line-height: 1.25; letter-spacing: -0.035em; }
+    .manifest p { margin: 0 0 1.1em; }
 
     .collective { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
-    .collective h3 { margin: 0 0 14px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .collective h3 { margin: 0 0 14px; font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; }
 
     .names {
       margin: 0;
-      font-size: clamp(20px, 2.5vw, 32px); /* Hieman pienennetty nimilista */
+      font-size: clamp(22px, 3vw, 42px);
       font-weight: 700;
-      line-height: 1.2; /* Lisätty riviväliä jokaiselle nimelle */
+      line-height: 1.2;
       letter-spacing: -0.04em;
       text-transform: uppercase;
     }
@@ -172,7 +164,7 @@
       padding: 28px 0 10px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
     }
 
     @media (max-width: 760px) {
@@ -185,6 +177,7 @@
       .hero-letter { font-size: clamp(180px, 72vw, 310px); }
       h1 { white-space: normal; }
       .meta { position: static; }
+      h2 { margin-bottom: 30px; }
     }
   </style>
 </head>
