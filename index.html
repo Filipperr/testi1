@@ -95,7 +95,7 @@
     h2 { 
       font-size: clamp(32px, 5vw, 72px); 
       letter-spacing: -0.05em;
-      margin-bottom: 3px; /* Erittäin pieni väli */
+      margin-bottom: 0px; /* Väli nollattu */
     }
 
     .intro {
@@ -144,7 +144,10 @@
     }
 
     .manifest { max-width: 760px; font-size: clamp(20px, 2.5vw, 34px); line-height: 1.25; letter-spacing: -0.035em; }
-    .manifest p { margin: 0 0 1.1em; }
+    
+    .manifest p { 
+      margin: 0 0 1.1em 0; /* Poistettu ylämarginaali otsikon alta */
+    }
 
     .collective { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
     .collective h3 { margin: 0 0 14px; font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; }
