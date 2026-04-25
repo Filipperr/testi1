@@ -24,7 +24,7 @@
         linear-gradient(135deg, #fbf8f1 0%, var(--bg) 52%, #eee6da 100%);
       color: var(--ink);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -99,11 +99,11 @@
     }
 
     .intro {
-      max-width: 620px;
+      max-width: 540px;
       margin-top: 28px;
       color: var(--muted);
-      font-size: clamp(17px, 2vw, 22px); /* Hieman pienennetty */
-      line-height: 1.4;
+      font-size: 16px; /* Pieni esittelyteksti */
+      line-height: 1.5;
     }
 
     .content {
@@ -123,7 +123,7 @@
       display: grid;
       gap: 26px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 13px;
     }
 
     .meta-block {
@@ -137,17 +137,25 @@
       display: block;
       margin-bottom: 8px;
       color: var(--ink);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    .manifest { max-width: 760px; font-size: clamp(18px, 2.2vw, 26px); /* Pienennetty fontti */ line-height: 1.4; letter-spacing: -0.02em; }
-    .manifest p { margin: 0 0 1.2em; }
+    .manifest { 
+      max-width: 680px; 
+    }
+    
+    .manifest p { 
+      font-size: 16px; /* Paljon pienempi fontti leipätekstiin */
+      line-height: 1.7; 
+      margin: 0 0 1.5em; 
+      color: #333;
+    }
 
     .collective { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
-    .collective h3 { margin: 0 0 14px; font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .collective h3 { margin: 0 0 14px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; }
 
     .names {
       margin: 0;
@@ -164,7 +172,7 @@
       padding: 28px 0 10px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
     @media (max-width: 760px) {
@@ -177,7 +185,6 @@
       .hero-letter { font-size: clamp(180px, 72vw, 310px); }
       h1 { white-space: normal; }
       .meta { position: static; }
-      h2 { margin-bottom: 40px; }
     }
   </style>
 </head>
