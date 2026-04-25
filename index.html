@@ -24,7 +24,7 @@
         linear-gradient(135deg, #fbf8f1 0%, var(--bg) 52%, #eee6da 100%);
       color: var(--ink);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.55;
+      line-height: 1.6; /* Hieman ilmavampi riviväli pienelle tekstille */
     }
 
     a { color: inherit; text-decoration: none; }
@@ -98,12 +98,12 @@
       margin-bottom: 60px; 
     }
 
+    /* Pienempi esittelyteksti */
     .intro {
       max-width: 620px;
       margin-top: 28px;
       color: var(--muted);
-      font-size: clamp(18px, 2.2vw, 25px);
-      line-height: 1.35;
+      font-size: 16px; 
     }
 
     .content {
@@ -123,7 +123,7 @@
       display: grid;
       gap: 26px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .meta-block {
@@ -143,13 +143,13 @@
       text-transform: uppercase;
     }
 
-    .manifest { max-width: 760px; }
+    .manifest { max-width: 700px; }
     
+    /* Tässä on nyt selvästi pienempi fonttikoko p-elementeille */
     .manifest p { 
-      font-size: clamp(19px, 2.3vw, 28px); /* Säädetty hieman pienemmäksi */
-      line-height: 1.4; 
-      letter-spacing: -0.02em;
-      margin: 0 0 1.2em; 
+      font-size: 16px; 
+      line-height: 1.7; 
+      margin: 0 0 1.5em; 
     }
 
     .collective { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
@@ -260,8 +260,7 @@
           <section class="collective" id="kollektiivi">
             <h3>Å-kollektiivi</h3>
             <p class="names">
-              Anna K Greus - Jani Frisk - Otso Kähönen<br>
-              Peksi - Jussi Ronkainen - Riikka Ruotsalainen
+              Anna K Greus - Jani Frisk - Otso Kähönen - Peksi - Jussi Ronkainen - Riikka Ruotsalainen
             </p>
           </section>
         </article>
