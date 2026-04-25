@@ -1,1 +1,377 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Å-Kollektiivi on valokuvataiteilijoiden yhteenliittymä ilman hierarkiaa.">
+  <title>Å-Kollektiivi</title>
+  <style>
+    :root {
+      --bg: #f7f3eb;
+      --ink: #111;
+      --muted: #6d665c;
+      --line: rgba(17, 17, 17, 0.18);
+      --panel: rgba(255, 255, 255, 0.42);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 85% 8%, rgba(17, 17, 17, 0.08), transparent 28rem),
+        linear-gradient(135deg, #fbf8f1 0%, var(--bg) 52%, #eee6da 100%);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 28px;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      max-width: 1180px;
+      margin: 0 auto 92px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 13px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+    }
+
+    .brand-mark {
+      display: inline-grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.08em;
+      line-height: 1;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+    }
+
+    .hero {
+      position: relative;
+      display: block;
+      max-width: 1180px;
+      margin: 0 auto 96px;
+      padding: 72px 0 54px;
+    }
+
+    .hero-mark {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      color: rgba(17, 17, 17, 0.08);
+      pointer-events: none;
+    }
+
+    .hero-letter {
+      display: block;
+      font-size: clamp(220px, 34vw, 430px);
+      font-weight: 700;
+      letter-spacing: -0.14em;
+      line-height: 0.78;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      font-weight: 700;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: none;
+      font-size: clamp(48px, 6.7vw, 96px);
+      letter-spacing: -0.065em;
+      white-space: nowrap;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 72px);
+      letter-spacing: -0.05em;
+    }
+
+    .intro {
+      max-width: 620px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 25px);
+      line-height: 1.35;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.65fr) minmax(0, 1.35fr);
+      gap: clamp(28px, 6vw, 86px);
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 56px 0 86px;
+      border-top: 1px solid var(--line);
+    }
+
+    .meta {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+      display: grid;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .meta-block {
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+    }
+
+    .meta-title {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .manifest {
+      max-width: 760px;
+      font-size: clamp(20px, 2.5vw, 34px);
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+    }
+
+    .manifest p {
+      margin: 0 0 1.1em;
+    }
+
+    .collective {
+      margin-top: 56px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .collective h3 {
+      margin: 0 0 14px;
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .names {
+      margin: 0;
+      font-size: clamp(22px, 3vw, 42px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .site-footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 0 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 18px;
+      }
+
+      .site-header,
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-header {
+        gap: 18px;
+        margin-bottom: 64px;
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        margin-bottom: 64px;
+        padding: 24px 0 48px;
+      }
+
+      .hero-mark {
+        right: -26px;
+        bottom: 24px;
+      }
+
+      .hero-letter {
+        font-size: clamp(180px, 72vw, 310px);
+      }
+
+      h1 {
+        white-space: normal;
+      }
+
+      .meta {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header" aria-label="Sivuston yläosa">
+      <a class="brand" href="#alku" aria-label="Å-Kollektiivi etusivu">
+        <span class="brand-mark" aria-hidden="true">Å</span>
+        <span>Å-Kollektiivi</span>
+      </a>
+      <nav class="nav" aria-label="Päävalikko">
+        <a href="#manifesti">Manifesti</a>
+        <a href="#kollektiivi">Kollektiivi</a>
+        <a href="#yhteys">Yhteys</a>
+      </nav>
+    </header>
+
+    <main id="alku">
+      <section class="hero" aria-labelledby="sivun-otsikko">
+        <div class="hero-copy">
+          <p class="eyebrow">Valokuvataiteilijoiden yhteenliittymä</p>
+          <h1 id="sivun-otsikko">Å-Kollektiivi – Manifesti</h1>
+          <p class="intro">
+            Å-Kollektiivi on valokuvataiteilijoiden yhteenliittymä ilman hierarkiaa.
+            Teemme taidetta itsenäisesti, yhdessä ja rinnakkain.
+          </p>
+        </div>
+        <div class="hero-mark" aria-hidden="true">
+          <span class="hero-letter">Å</span>
+        </div>
+      </section>
+
+      <section class="content" id="manifesti" aria-labelledby="manifesti-otsikko">
+        <aside class="meta">
+          <div class="meta-block">
+            <span class="meta-title">Teksti</span>
+            kirjoittanut Otso Kähönen<br>
+            8.3.2026
+          </div>
+          <div class="meta-block" id="yhteys">
+            <span class="meta-title">Yhteys</span>
+            <a href="mailto:info@a-kollektiivi.fi">info@a-kollektiivi.fi</a><br>
+          </div>
+        </aside>
+
+        <article class="manifest">
+          <h2 id="manifesti-otsikko">Å-Kollektiivi</h2>
+          <br></br>
+          <br></br>
+          <p>
+            Å-kirjain ei juuri esiinny suomen kielessä.
+            Sitä tavataan lähinnä paikannimissä, erisnimissä ja harvinaisissa lainasanoissa.
+            29 aakkosemme joukossa å on todellinen poikkeus.
+            Marginaalinen. Omaperäinen. Kätketty aarre.
+          </p>
+          <p>
+            Å-kirjain kollektiivin nimessä edustaa tätä kaikkea.
+            Se mahdollistaa tekemisellemme lähes minkä tahansa merkityksen.
+            Å-Kollektiivi on valokuvataiteilijoiden yhteenliittymä ilman hierarkiaa.
+          </p>
+          <p>
+            Lähestymme taidetta vapaasti – kulloistenkin ideoiden, ajatusten,
+            halujen ja intuition johdattelemana. Teemme taidetta itsenäisesti,
+            yhdessä ja rinnakkain.
+          </p>
+          <p>
+            Työskentelytapamme perustuu avoimuuteen.
+            Kannustamme toisiamme. Kokeilemme. Leikimme taiteella ja sen käsitteillä.
+            Å-kollektiiviin mahtuu laaja kirjo tekemistä. Ilman rajoituksia. Ilman odotuksia.
+          </p>
+          <p>
+            Nousemme taiteen homogeenisyyttä vastaan ja annamme oman näkemyksemme
+            näkyä ja kuulua rohkeasti.
+          </p>
+
+          <section class="collective" id="kollektiivi" aria-labelledby="kollektiivi-otsikko">
+            <h3 id="kollektiivi-otsikko">Å-kollektiivi</h3>
+            <p class="names">
+              Anna K Greus - Jani Frisk - Otso Kähönen<br>
+              Peksi - Jussi Ronkainen - Riikka Ruotsalainen
+            </p>
+          </section>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Å-Kollektiivi</span>
+    </footer>
+  </div>
+</body>
+</html>
 
